@@ -1,0 +1,36 @@
+plugins {
+    id 'org.springframework.boot' version '2.5.6'
+    id 'io.spring.dependency-management' version '1.0.11.RELEASE'
+    id 'java'
+    id 'checkstyle'
+    id "io.freefair.lombok" version "6.2.0"
+    id 'com.google.cloud.tools.jib' version '3.1.4'
+}
+
+group = 'faka.cs'
+version = '0.0.1-SNAPSHOT'
+sourceCompatibility = '1.8'
+
+repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.springframework.boot:spring-boot-starter-data-mongodb'
+    implementation 'org.springframework.boot:spring-boot-starter-web'
+    implementation 'org.springframework.boot:spring-boot-starter-validation'
+    implementation 'com.google.guava:guava:29.0-jre'
+    testImplementation 'org.springframework.boot:spring-boot-starter-test'
+    testImplementation "org.testcontainers:junit-jupiter:1.16.2"
+    testImplementation "org.testcontainers:mongodb:1.16.2"
+}
+
+test {
+    useJUnitPlatform()
+}
+
+checkstyle {
+    toolVersion = '8.41.1'
+    ignoreFailures = false
+    maxWarnings = 0
+}

@@ -1,0 +1,14 @@
+version: "3.9"
+services:
+  mongo:
+    image: "mongo:4.4.2"
+    restart: always
+  app:
+    image: "temperature-sensor:latest"
+    ports:
+      - "8080:8080"
+    links:
+      - mongo
+    environment:
+      MONGODB_HOST: mongo
+      MONGODB_PORT: 27017

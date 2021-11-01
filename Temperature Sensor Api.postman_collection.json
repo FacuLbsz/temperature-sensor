@@ -1,0 +1,139 @@
+{
+	"info": {
+		"_postman_id": "11eed392-592a-426d-ab98-5dce3c99211d",
+		"name": "Temperature Sensor Api",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Get Aggregated Daily Temperature",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sensor/{{sensorId}}/temperature/daily?from=2021-10-30&to=2021-10-31",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sensor",
+						"{{sensorId}}",
+						"temperature",
+						"daily"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2021-10-30"
+						},
+						{
+							"key": "to",
+							"value": "2021-10-31"
+						},
+						{
+							"key": null,
+							"value": "",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Aggregated Hourly Temperature",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "localhost:8080/sensor/{{sensorId}}/temperature/hourly?from=2021-10-30&fromHourOfTheDay=0&to=2021-10-31&toHourOfTheDay=22",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sensor",
+						"{{sensorId}}",
+						"temperature",
+						"hourly"
+					],
+					"query": [
+						{
+							"key": "from",
+							"value": "2021-10-30"
+						},
+						{
+							"key": "fromHourOfTheDay",
+							"value": "0"
+						},
+						{
+							"key": "to",
+							"value": "2021-10-31"
+						},
+						{
+							"key": "toHourOfTheDay",
+							"value": "22"
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Add Temperature Data",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "\n{\"data\": [\n  { \"pointInTime\" :\"2021-10-29T00:01:00\", \"temperature\": 7.01},\n  { \"pointInTime\" :\"2021-10-29T00:02:00\", \"temperature\": 7.02},\n  { \"pointInTime\" :\"2021-10-29T00:03:00\", \"temperature\": 7.03},\n  { \"pointInTime\" :\"2021-10-29T00:04:00\", \"temperature\": 7.04},\n  { \"pointInTime\" :\"2021-10-29T00:05:00\", \"temperature\": 7.05},\n  { \"pointInTime\" :\"2021-10-29T01:01:00\", \"temperature\": 7.11},\n  { \"pointInTime\" :\"2021-10-29T01:02:00\", \"temperature\": 7.12},\n  { \"pointInTime\" :\"2021-10-29T01:03:00\", \"temperature\": 7.13},\n  { \"pointInTime\" :\"2021-10-29T01:04:00\", \"temperature\": 7.14},\n  { \"pointInTime\" :\"2021-10-29T01:05:00\", \"temperature\": 7.15},\n  { \"pointInTime\" :\"2021-10-30T00:01:00\", \"temperature\": 6.01},\n  { \"pointInTime\" :\"2021-10-30T00:02:00\", \"temperature\": 6.02},\n  { \"pointInTime\" :\"2021-10-30T00:03:00\", \"temperature\": 6.03},\n  { \"pointInTime\" :\"2021-10-30T00:04:00\", \"temperature\": 6.04},\n  { \"pointInTime\" :\"2021-10-30T00:05:00\", \"temperature\": 6.05},\n  { \"pointInTime\" :\"2021-10-30T01:01:00\", \"temperature\": 6.11},\n  { \"pointInTime\" :\"2021-10-30T01:02:00\", \"temperature\": 6.12},\n  { \"pointInTime\" :\"2021-10-30T01:03:00\", \"temperature\": 6.13},\n  { \"pointInTime\" :\"2021-10-30T01:04:00\", \"temperature\": 6.14},\n  { \"pointInTime\" :\"2021-10-30T01:05:00\", \"temperature\": 6.15},\n  { \"pointInTime\" :\"2021-10-31T00:01:00\", \"temperature\": 5.01},\n  { \"pointInTime\" :\"2021-10-31T00:02:00\", \"temperature\": 5.02},\n  { \"pointInTime\" :\"2021-10-31T00:03:00\", \"temperature\": 5.03},\n  { \"pointInTime\" :\"2021-10-31T00:04:00\", \"temperature\": 5.04},\n  { \"pointInTime\" :\"2021-10-31T00:05:00\", \"temperature\": 5.05},\n  { \"pointInTime\" :\"2021-10-31T01:01:00\", \"temperature\": 5.11},\n  { \"pointInTime\" :\"2021-10-31T01:02:00\", \"temperature\": 5.12},\n  { \"pointInTime\" :\"2021-10-31T01:03:00\", \"temperature\": 5.13},\n  { \"pointInTime\" :\"2021-10-31T01:04:00\", \"temperature\": 5.14},\n  { \"pointInTime\" :\"2021-10-31T01:05:00\", \"temperature\": 5.15}\n]}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "localhost:8080/sensor/{{sensorId}}/temperature",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"sensor",
+						"{{sensorId}}",
+						"temperature"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "sensorId",
+			"value": "sensorId"
+		}
+	]
+}
