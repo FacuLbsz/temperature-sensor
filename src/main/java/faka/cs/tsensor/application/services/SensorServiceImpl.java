@@ -8,7 +8,6 @@ import faka.cs.tsensor.application.port.incoming.query.GetAggregatedDailyTempera
 import faka.cs.tsensor.application.port.incoming.query.GetAggregatedHourlyTemperatureQuery;
 import faka.cs.tsensor.application.port.outgoing.SensorDataRepository;
 import lombok.val;
-import org.springframework.transaction.annotation.Transactional;
 
 public class SensorServiceImpl implements SensorService {
 
@@ -19,7 +18,6 @@ public class SensorServiceImpl implements SensorService {
     }
 
     @Override
-    @Transactional
     public void add(AddTemperatureDataCommand addTemperatureDataCommand) {
         val sensorId = addTemperatureDataCommand.getSensorId();
         sensorDataRepository.upsert(

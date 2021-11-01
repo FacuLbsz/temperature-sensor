@@ -23,6 +23,8 @@ import org.springframework.data.mongodb.core.aggregation.DateOperators;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.data.mongodb.core.query.Update;
+import org.springframework.transaction.annotation.Transactional;
+
 
 import static org.springframework.data.mongodb.core.aggregation.Aggregation.addFields;
 import static org.springframework.data.mongodb.core.aggregation.Aggregation.group;
@@ -41,6 +43,7 @@ public class MongoDbSensorDataRepository implements SensorDataRepository {
     }
 
     @Override
+    @Transactional
     public void upsert(String sensorId, List<TemperatureData> sensorData) {
         BulkOperations bulkOps = mongoTemplate.bulkOps(BulkOperations.BulkMode.UNORDERED, SensorDataEntity.class);
 
